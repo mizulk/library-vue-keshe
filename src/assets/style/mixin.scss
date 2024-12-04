@@ -1,0 +1,17 @@
+@mixin fixed-button($size) {
+  width: $size;
+  height: $size;
+  border: 4px black solid;
+  border-radius: 12px;
+  float: right;
+  padding: 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+
+  &:hover {
+    background-color: #d8d8d8;
+  }
+  &:active {
+    background-color: #c8c8c8;
+  }
+}
