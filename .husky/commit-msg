@@ -1,1 +1,28 @@
 #!/bin/sh
+
+msg_re="^(feat|fix|docs|style|refactor|perf|test|chore|build|ci|workflow|release|ui|revert)(\(.+\))?: .+"
+
+commit_msg=`cat $1`
+
+if [[ ! $commit_msg =~ $msg_re ]]
+then
+	echo -e "\e[31m Incorrect commit message.\e[0m"
+	echo -e "\e[1m Please follow the Commit Message Format:\e[0m"
+	echo -e "\e[33m <type>(<scope>): <subject>\e[0m"
+	echo -e "\e[1m Below are the type:\e[0m"
+	echo -e "\e[34m feat:\e[0m A new feature"
+	echo -e "\e[34m fix:\e[0m A bug fix"
+	echo -e "\e[34m docs:\e[0m Documentation only changes"
+	echo -e "\e[34m style:\e[0m Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)"
+	echo -e "\e[34m refactor:\e[0m A code change that neither fixes a bug nor adds a feature"
+	echo -e "\e[34m perf:\e[0m A code change that improves performance"
+	echo -e "\e[34m test:\e[0m Adding missing or correcting existing tests"
+	echo -e "\e[34m chore:\e[0m Other changes that don't modify src or test files"
+	echo -e "\e[34m build:\e[0m Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)"
+	echo -e "\e[34m ci:\e[0m Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)"
+	echo -e "\e[34m release:\e[0m Add a new release"
+	echo -e "\e[34m ui:\e[0m Changes that modify ui"
+	echo -e "\e[34m revert:\e[0m Reverts a previous commit"
+	echo -e " To see more information: https://github.com/angular/angular.js/blob/master/DEVELOPERS.md"
+	exit 1
+fi
