@@ -5,6 +5,8 @@ vue3 + vite + axios + pinia + vue-router4
 
 这是一个图书管理系统的前端项目
 
+后端项目：https://github.com/mizulk/library-springboot3-keshe
+
 使用pnpm进行包管理
 
 ## Project Setup
